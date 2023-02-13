@@ -1,3 +1,1 @@
-struct ObjectBuilder {
-
-}
+struct ObjectBuilder {}

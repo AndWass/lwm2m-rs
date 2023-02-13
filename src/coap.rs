@@ -109,9 +109,8 @@ impl Client {
                 .recv_from(unsafe { self.read_buffer.writable_buffer() })
                 .await?;
             if from == self.socket.peer_addr().unwrap() {
-                let packet = Packet::from_bytes(unsafe {
-                    self.read_buffer.readable_buffer(amount)
-                })?;
+                let packet =
+                    Packet::from_bytes(unsafe { self.read_buffer.readable_buffer(amount) })?;
 
                 return Ok(packet);
             }
@@ -136,7 +135,7 @@ impl Client {
             socket,
             read_buffer: Buffer::new(),
             next_message_id: 1231,
-            response_cache: Default::default()
+            response_cache: Default::default(),
         })
     }
 
